@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:forgot": "npx wdio wdio.conf.js --spec ./test/specs/forgot.spec.js"
+    "test:forgot": "npx wdio local.wdio.conf.js --spec ./test/specs/forgot.spec.js"
   },
   "type": "commonjs",
   "keywords": [],

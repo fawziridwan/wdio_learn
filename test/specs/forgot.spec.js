@@ -1,12 +1,17 @@
 const login = require("../pageobjects/login.page");
 const forgot = require("../pageobjects/forgot.page");
 describe("Lupa Password", () => {
+  const appPackage = "com.codingid.codingidhive.betastaging"; // Replace with your app's package name
+
   beforeEach(() => {
     driver.launchApp();
     driver.pause(100000);
   });
 
-  it("LupaPass-Mobile-001 - Lupa password dengan valid data", async function () {
+  it("Lupa Password All Flow", async function () {
+    /**
+     * LupaPass-Mobile-001 - Lupa password dengan valid data
+     */
     await login.loginBtn.click();
     await forgot.forgot_password_label.click();
     await forgot.forgot_input_email.setValue("fawzitester@gmail.com");
@@ -27,18 +32,16 @@ describe("Lupa Password", () => {
       expected_link_successfull_sent
     );
     await forgot.forgot_button_ok.click();
-  });
-
-  it("LupaPass-Mobile-002 - Verifikasi fungsi tombol send", async function () {
-    await login.loginBtn.click();
-    await forgot.forgot_password_label.click();
+    /**
+     * LupaPass-Mobile-002 - Verifikasi fungsi tombol send
+     */
     const button = forgot.forgot_btn_send;
     const isEnabled = await button.getAttribute("enabled");
     await expect(isEnabled).toEqual("false");
-  });
-
-  it("LupaPass-Mobile-003 - lupa password dengan email tidak valid", async function () {
-    await login.loginBtn.click();
+    await forgot.forgot_back_button.click();
+    /**
+     * LupaPass-Mobile-003 - lupa password dengan email tidak valid
+     */
     await forgot.forgot_password_label.click();
     await forgot.forgot_input_email.setValue("hahah@mail.com");
     await forgot.forgot_btn_send.click();
@@ -50,10 +53,10 @@ describe("Lupa Password", () => {
       expected_email_not_registered
     );
     await forgot.forgot_button_ok.click();
-  });
-
-  it("LupaPass-Mobile-004 - Lupa password dengan email tidak lengkap", async function () {
-    await login.loginBtn.click();
+    await forgot.forgot_back_button.click();
+    /**
+     * LupaPass-Mobile-004 - Lupa password dengan email tidak lengkap
+     */
     await forgot.forgot_password_label.click();
     await forgot.forgot_input_email.setValue("hahahtumbalakun@gmail.");
     await forgot.forgot_btn_send.click();

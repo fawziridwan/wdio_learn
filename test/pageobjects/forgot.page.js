@@ -32,6 +32,8 @@ class ForgotPasswordPage {
   get forgot_email_not_registered() {
     return $("//android.widget.TextView[@text='Email belum terdaftar']");
   }
+  get forgot_back_button() {
+    return $("//android.widget.Button[@content-desc='Back']");
+  }
 }
-
 module.exports = new ForgotPasswordPage();

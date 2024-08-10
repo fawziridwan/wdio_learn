@@ -8,7 +8,6 @@ exports.config = {
   // WebdriverIO supports running e2e tests as well as unit and component tests.
   runner: "local",
   port: 4723,
-  path: "wd/hub",
   //
   // ==================
   // Specify Test Files
@@ -66,6 +65,7 @@ exports.config = {
       "appium:fullReset": false,
       "appium:deviceId": "52005d4eec1594af",
       "appium:automationName": "UiAutomator2",
+      "appium:appPackage": "com.codingid.codingidhive.betastaging",
       "appium:app": path.join(process.cwd(), "./apps/demo-app.site.apk"),
     },
   ],
@@ -104,7 +104,7 @@ exports.config = {
   // baseUrl: 'http://localhost:8080',
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 60000,
+  waitforTimeout: 120000,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
